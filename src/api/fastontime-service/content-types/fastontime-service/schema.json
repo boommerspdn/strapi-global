@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "fastontime_services",
+  "info": {
+    "singularName": "fastontime-service",
+    "pluralName": "fastontime-services",
+    "displayName": "Fastontime - Service"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "slug": { "type": "uid", "targetField": "name", "required": true },
+    "description": { "type": "text", "required": true },
+    "title": { "type": "string", "required": true },
+    "body": { "type": "blocks", "required": true },
+    "seo": { "type": "component", "repeatable": false, "component": "seo.seo" }
+  }
+}

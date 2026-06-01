@@ -1,0 +1,16 @@
+{
+  "kind": "singleType",
+  "collectionName": "fastontime_contact_pages",
+  "info": {
+    "singularName": "fastontime-contact-page",
+    "pluralName": "fastontime-contact-pages",
+    "displayName": "Fastontime - Contact Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "email_to_receive": { "type": "string", "required": true },
+    "company_name": { "type": "text", "required": true },
+    "google_map_embed_src": { "type": "text", "required": true },
+    "seo": { "type": "component", "repeatable": false, "component": "seo.seo" }
+  }
+}

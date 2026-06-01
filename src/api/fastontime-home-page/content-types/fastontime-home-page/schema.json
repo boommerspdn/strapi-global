@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "fastontime_home_pages",
+  "info": {
+    "singularName": "fastontime-home-page",
+    "pluralName": "fastontime-home-pages",
+    "displayName": "Fastontime - Home Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "banner_image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images", "files", "videos", "audios"] },
+    "banner_text": { "type": "string", "required": true },
+    "banner_description": { "type": "text", "required": true },
+    "banner_button": { "type": "string", "required": true },
+    "banner_section_title_1": { "type": "string", "required": true },
+    "banner_section_description_1": { "type": "string", "required": true },
+    "banner_section_title_2": { "type": "string", "required": true },
+    "banner_section_description_2": { "type": "string", "required": true },
+    "banner_section_title_3": { "type": "string", "required": true },
+    "banner_section_description_3": { "type": "text", "required": true },
+    "promotion_ads": { "type": "media", "multiple": true, "required": true, "allowedTypes": ["images", "files", "videos", "audios"] },
+    "section_1_title": { "type": "string", "required": true },
+    "section_1_description": { "type": "text", "required": true },
+    "section_2_title": { "type": "string", "required": true },
+    "section_2_body": { "type": "text", "required": true },
+    "section_2_image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images", "files", "videos", "audios"] },
+    "section_3_title": { "type": "string", "required": true },
+    "section_3_body": { "type": "text", "required": true },
+    "section_3_button": { "type": "string", "required": true },
+    "section_3_button_url": { "type": "string", "required": true },
+    "seo": { "type": "component", "repeatable": false, "component": "seo.seo" }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "singleType",
+  "collectionName": "fastontime_layouts",
+  "info": {
+    "singularName": "fastontime-layout",
+    "pluralName": "fastontime-layouts",
+    "displayName": "Fastontime - Layout"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "name": { "type": "string", "required": true },
+    "address": { "type": "text", "required": true },
+    "phone": { "type": "string", "required": true },
+    "email": { "type": "string", "required": true },
+    "facebook_link": { "type": "text", "required": true },
+    "line_link": { "type": "text", "required": true },
+    "copyright": { "type": "string", "required": true },
+    "logo": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images"] }
+  }
+}

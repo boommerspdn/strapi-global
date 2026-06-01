@@ -1,0 +1,17 @@
+{
+  "kind": "singleType",
+  "collectionName": "fastontime_about_pages",
+  "info": {
+    "singularName": "fastontime-about-page",
+    "pluralName": "fastontime-about-pages",
+    "displayName": "Fastontime - About Page"
+  },
+  "options": { "draftAndPublish": true },
+  "attributes": {
+    "about_body": { "type": "blocks", "required": true },
+    "reason_title": { "type": "string", "required": true },
+    "reason_body": { "type": "blocks", "required": true },
+    "header_image": { "type": "media", "multiple": false, "required": true, "allowedTypes": ["images", "files", "videos", "audios"] },
+    "seo": { "type": "component", "repeatable": false, "component": "seo.seo" }
+  }
+}

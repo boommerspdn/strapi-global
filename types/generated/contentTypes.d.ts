@@ -440,6 +440,206 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiFastontimeAboutPageFastontimeAboutPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'fastontime_about_pages';
+  info: {
+    displayName: 'Fastontime - About Page';
+    pluralName: 'fastontime-about-pages';
+    singularName: 'fastontime-about-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    about_body: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    header_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fastontime-about-page.fastontime-about-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    reason_body: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    reason_title: Schema.Attribute.String & Schema.Attribute.Required;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFastontimeContactPageFastontimeContactPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'fastontime_contact_pages';
+  info: {
+    displayName: 'Fastontime - Contact Page';
+    pluralName: 'fastontime-contact-pages';
+    singularName: 'fastontime-contact-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    company_name: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email_to_receive: Schema.Attribute.String & Schema.Attribute.Required;
+    google_map_embed_src: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fastontime-contact-page.fastontime-contact-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFastontimeHomePageFastontimeHomePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'fastontime_home_pages';
+  info: {
+    displayName: 'Fastontime - Home Page';
+    pluralName: 'fastontime-home-pages';
+    singularName: 'fastontime-home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    banner_button: Schema.Attribute.String & Schema.Attribute.Required;
+    banner_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    banner_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    banner_section_description_1: Schema.Attribute.String &
+      Schema.Attribute.Required;
+    banner_section_description_2: Schema.Attribute.String &
+      Schema.Attribute.Required;
+    banner_section_description_3: Schema.Attribute.Text &
+      Schema.Attribute.Required;
+    banner_section_title_1: Schema.Attribute.String & Schema.Attribute.Required;
+    banner_section_title_2: Schema.Attribute.String & Schema.Attribute.Required;
+    banner_section_title_3: Schema.Attribute.String & Schema.Attribute.Required;
+    banner_text: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fastontime-home-page.fastontime-home-page'
+    > &
+      Schema.Attribute.Private;
+    promotion_ads: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    > &
+      Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    section_1_description: Schema.Attribute.Text & Schema.Attribute.Required;
+    section_1_title: Schema.Attribute.String & Schema.Attribute.Required;
+    section_2_body: Schema.Attribute.Text & Schema.Attribute.Required;
+    section_2_image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    > &
+      Schema.Attribute.Required;
+    section_2_title: Schema.Attribute.String & Schema.Attribute.Required;
+    section_3_body: Schema.Attribute.Text & Schema.Attribute.Required;
+    section_3_button: Schema.Attribute.String & Schema.Attribute.Required;
+    section_3_button_url: Schema.Attribute.String & Schema.Attribute.Required;
+    section_3_title: Schema.Attribute.String & Schema.Attribute.Required;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFastontimeLayoutFastontimeLayout
+  extends Struct.SingleTypeSchema {
+  collectionName: 'fastontime_layouts';
+  info: {
+    displayName: 'Fastontime - Layout';
+    pluralName: 'fastontime-layouts';
+    singularName: 'fastontime-layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    copyright: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.String & Schema.Attribute.Required;
+    facebook_link: Schema.Attribute.Text & Schema.Attribute.Required;
+    line_link: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fastontime-layout.fastontime-layout'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiFastontimeServiceFastontimeService
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'fastontime_services';
+  info: {
+    displayName: 'Fastontime - Service';
+    pluralName: 'fastontime-services';
+    singularName: 'fastontime-service';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    body: Schema.Attribute.Blocks & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::fastontime-service.fastontime-service'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface PluginContentReleasesRelease
   extends Struct.CollectionTypeSchema {
   collectionName: 'strapi_releases';
@@ -951,6 +1151,11 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::fastontime-about-page.fastontime-about-page': ApiFastontimeAboutPageFastontimeAboutPage;
+      'api::fastontime-contact-page.fastontime-contact-page': ApiFastontimeContactPageFastontimeContactPage;
+      'api::fastontime-home-page.fastontime-home-page': ApiFastontimeHomePageFastontimeHomePage;
+      'api::fastontime-layout.fastontime-layout': ApiFastontimeLayoutFastontimeLayout;
+      'api::fastontime-service.fastontime-service': ApiFastontimeServiceFastontimeService;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
