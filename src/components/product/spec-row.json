@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_product_spec_rows",
+  "info": {
+    "displayName": "Spec Row",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "model": {
+      "type": "string",
+      "required": true
+    },
+    "btu": {
+      "type": "integer",
+      "required": true
+    },
+    "seer": {
+      "type": "decimal",
+      "required": true
+    },
+    "ecoGrade": {
+      "type": "enumeration",
+      "enum": [
+        "5_5stars",
+        "5_4stars",
+        "5_3stars",
+        "5_2stars",
+        "5_1star"
+      ],
+      "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}

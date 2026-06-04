@@ -1,0 +1,26 @@
+{
+  "kind": "singleType",
+  "collectionName": "bprservice_home_pages",
+  "info": {
+    "singularName": "bprservice-home-page",
+    "pluralName": "bprservice-home-pages",
+    "displayName": "BPRService - Home Page",
+    "description": "BPR Service homepage content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "features": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.feature-card"
+    }
+  }
+}

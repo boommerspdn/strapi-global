@@ -1,0 +1,47 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bprservice_brands",
+  "info": {
+    "singularName": "bprservice-brand",
+    "pluralName": "bprservice-brands",
+    "displayName": "BPRService - Brand",
+    "description": "Air conditioning brands"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "wallUnit": {
+      "type": "boolean",
+      "default": false
+    },
+    "floorUnit": {
+      "type": "boolean",
+      "default": false
+    },
+    "ceilingCassette": {
+      "type": "boolean",
+      "default": false
+    },
+    "hangingUnit": {
+      "type": "boolean",
+      "default": false
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bprservice-product.bprservice-product",
+      "mappedBy": "brand"
+    }
+  }
+}

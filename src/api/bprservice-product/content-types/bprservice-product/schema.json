@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bprservice_products",
+  "info": {
+    "singularName": "bprservice-product",
+    "pluralName": "bprservice-products",
+    "displayName": "BPRService - Product",
+    "description": "Air conditioning product series"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "slug": {
+      "type": "uid",
+      "required": true,
+      "unique": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "unitType": {
+      "type": "enumeration",
+      "enum": [
+        "wall_unit",
+        "floor_unit",
+        "ceiling_cassette",
+        "hanging_unit"
+      ],
+      "required": true
+    },
+    "brand": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bprservice-brand.bprservice-brand",
+      "inversedBy": "products"
+    },
+    "specs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product.spec-row"
+    }
+  }
+}

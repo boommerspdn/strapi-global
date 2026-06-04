@@ -440,6 +440,120 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBprserviceBrandBprserviceBrand
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bprservice_brands';
+  info: {
+    description: 'Air conditioning brands';
+    displayName: 'BPRService - Brand';
+    pluralName: 'bprservice-brands';
+    singularName: 'bprservice-brand';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ceilingCassette: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<false>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    floorUnit: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    hangingUnit: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-brand.bprservice-brand'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-product.bprservice-product'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    wallUnit: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ApiBprserviceHomePageBprserviceHomePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bprservice_home_pages';
+  info: {
+    description: 'BPR Service homepage content';
+    displayName: 'BPRService - Home Page';
+    pluralName: 'bprservice-home-pages';
+    singularName: 'bprservice-home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    features: Schema.Attribute.Component<'shared.feature-card', true>;
+    heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-home-page.bprservice-home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBprserviceProductBprserviceProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bprservice_products';
+  info: {
+    description: 'Air conditioning product series';
+    displayName: 'BPRService - Product';
+    pluralName: 'bprservice-products';
+    singularName: 'bprservice-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bprservice-brand.bprservice-brand'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-product.bprservice-product'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
+    specs: Schema.Attribute.Component<'product.spec-row', true>;
+    unitType: Schema.Attribute.Enumeration<
+      ['wall_unit', 'floor_unit', 'ceiling_cassette', 'hanging_unit']
+    > &
+      Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFastontimeAboutPageFastontimeAboutPage
   extends Struct.SingleTypeSchema {
   collectionName: 'fastontime_about_pages';
@@ -1151,6 +1265,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::bprservice-brand.bprservice-brand': ApiBprserviceBrandBprserviceBrand;
+      'api::bprservice-home-page.bprservice-home-page': ApiBprserviceHomePageBprserviceHomePage;
+      'api::bprservice-product.bprservice-product': ApiBprserviceProductBprserviceProduct;
       'api::fastontime-about-page.fastontime-about-page': ApiFastontimeAboutPageFastontimeAboutPage;
       'api::fastontime-contact-page.fastontime-contact-page': ApiFastontimeContactPageFastontimeContactPage;
       'api::fastontime-home-page.fastontime-home-page': ApiFastontimeHomePageFastontimeHomePage;
