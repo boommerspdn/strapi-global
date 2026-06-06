@@ -9,7 +9,7 @@ export interface ProductSpecRow extends Struct.ComponentSchema {
   attributes: {
     btu: Schema.Attribute.Integer & Schema.Attribute.Required;
     ecoGrade: Schema.Attribute.Enumeration<
-      ['5_5stars', '5_4stars', '5_3stars', '5_2stars', '5_1star']
+      ['5_5stars', '5_4stars', '5_3stars', '5_2stars', '5_1star', '5_0star']
     > &
       Schema.Attribute.Required;
     model: Schema.Attribute.String & Schema.Attribute.Required;

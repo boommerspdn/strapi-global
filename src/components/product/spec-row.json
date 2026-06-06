@@ -25,7 +25,8 @@
         "5_4stars",
         "5_3stars",
         "5_2stars",
-        "5_1star"
+        "5_1star",
+        "5_0star"
       ],
       "required": true
     },
