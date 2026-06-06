@@ -1,0 +1,37 @@
+{
+  "kind": "singleType",
+  "collectionName": "bprservice_layouts",
+  "info": {
+    "singularName": "bprservice-layout",
+    "pluralName": "bprservice-layouts",
+    "displayName": "BPRService - Layout",
+    "description": "Shared BPR Service business identity and contact details"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "lineId": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text",
+      "required": true
+    },
+    "googleMapEmbedSrc": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

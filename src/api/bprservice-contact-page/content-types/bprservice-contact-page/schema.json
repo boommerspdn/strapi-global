@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "bprservice_contact_pages",
+  "info": {
+    "singularName": "bprservice-contact-page",
+    "pluralName": "bprservice-contact-pages",
+    "displayName": "BPRService - Contact Page",
+    "description": "BPR Service contact page content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "mapTitle": {
+      "type": "string",
+      "required": true
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}

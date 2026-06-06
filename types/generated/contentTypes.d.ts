@@ -488,6 +488,40 @@ export interface ApiBprserviceBrandBprserviceBrand
   };
 }
 
+export interface ApiBprserviceContactPageBprserviceContactPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bprservice_contact_pages';
+  info: {
+    description: 'BPR Service contact page content';
+    displayName: 'BPRService - Contact Page';
+    pluralName: 'bprservice-contact-pages';
+    singularName: 'bprservice-contact-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-contact-page.bprservice-contact-page'
+    > &
+      Schema.Attribute.Private;
+    mapTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    subtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiBprserviceHomePageBprserviceHomePage
   extends Struct.SingleTypeSchema {
   collectionName: 'bprservice_home_pages';
@@ -508,11 +542,42 @@ export interface ApiBprserviceHomePageBprserviceHomePage
     heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     heroSubtitle: Schema.Attribute.String & Schema.Attribute.Required;
     heroTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    lineId: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::bprservice-home-page.bprservice-home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBprserviceLayoutBprserviceLayout
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bprservice_layouts';
+  info: {
+    description: 'Shared BPR Service business identity and contact details';
+    displayName: 'BPRService - Layout';
+    pluralName: 'bprservice-layouts';
+    singularName: 'bprservice-layout';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    googleMapEmbedSrc: Schema.Attribute.Text & Schema.Attribute.Required;
+    lineId: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-layout.bprservice-layout'
     > &
       Schema.Attribute.Private;
     logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
@@ -1306,7 +1371,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::bprservice-brand.bprservice-brand': ApiBprserviceBrandBprserviceBrand;
+      'api::bprservice-contact-page.bprservice-contact-page': ApiBprserviceContactPageBprserviceContactPage;
       'api::bprservice-home-page.bprservice-home-page': ApiBprserviceHomePageBprserviceHomePage;
+      'api::bprservice-layout.bprservice-layout': ApiBprserviceLayoutBprserviceLayout;
       'api::bprservice-product.bprservice-product': ApiBprserviceProductBprserviceProduct;
       'api::bprservice-works-page.bprservice-works-page': ApiBprserviceWorksPageBprserviceWorksPage;
       'api::fastontime-about-page.fastontime-about-page': ApiFastontimeAboutPageFastontimeAboutPage;
