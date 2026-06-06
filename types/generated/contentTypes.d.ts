@@ -498,12 +498,17 @@ export interface ApiBprserviceHomePageBprserviceHomePage
       Schema.Attribute.Private;
     features: Schema.Attribute.Component<'shared.feature-card', true>;
     heroImage: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    heroSubtitle: Schema.Attribute.String & Schema.Attribute.Required;
+    heroTitle: Schema.Attribute.String & Schema.Attribute.Required;
+    lineId: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::bprservice-home-page.bprservice-home-page'
     > &
       Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    phoneNumber: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -540,9 +545,6 @@ export interface ApiBprserviceProductBprserviceProduct
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID &
-      Schema.Attribute.Required &
-      Schema.Attribute.Unique;
     specs: Schema.Attribute.Component<'product.spec-row', true>;
     unitType: Schema.Attribute.Enumeration<
       ['wall_unit', 'floor_unit', 'ceiling_cassette', 'hanging_unit']

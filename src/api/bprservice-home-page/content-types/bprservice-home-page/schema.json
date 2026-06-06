@@ -11,6 +11,28 @@
     "draftAndPublish": true
   },
   "attributes": {
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
+    "lineId": {
+      "type": "string",
+      "required": true
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "heroTitle": {
+      "type": "string",
+      "required": true
+    },
+    "heroSubtitle": {
+      "type": "string",
+      "required": true
+    },
     "heroImage": {
       "type": "media",
       "multiple": false,

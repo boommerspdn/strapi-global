@@ -147,3 +147,13 @@ build
 .strapi-cloud.json
 .claude
 API_ENDPOINTS.md
+
+############################
+# Local generated artifacts
+############################
+
+AGENTS.md
+docs/
+.playwright-mcp/
+sabai_pdf_page.png
+temp-assets/
