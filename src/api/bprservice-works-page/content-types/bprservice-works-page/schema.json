@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "bprservice_works_pages",
+  "info": {
+    "singularName": "bprservice-works-page",
+    "pluralName": "bprservice-works-pages",
+    "displayName": "BPRService - Works Page",
+    "description": "BPR Service works page image gallery"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": true,
+      "allowedTypes": ["images"]
+    }
+  }
+}

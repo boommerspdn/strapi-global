@@ -21,6 +21,11 @@
       "required": true,
       "allowedTypes": ["images"]
     },
+    "sortOrder": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
+    },
     "wallUnit": {
       "type": "boolean",
       "default": false

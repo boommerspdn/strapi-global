@@ -473,6 +473,14 @@ export interface ApiBprserviceBrandBprserviceBrand
       'api::bprservice-product.bprservice-product'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -550,6 +558,36 @@ export interface ApiBprserviceProductBprserviceProduct
       ['wall_unit', 'floor_unit', 'ceiling_cassette', 'hanging_unit']
     > &
       Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBprserviceWorksPageBprserviceWorksPage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bprservice_works_pages';
+  info: {
+    description: 'BPR Service works page image gallery';
+    displayName: 'BPRService - Works Page';
+    pluralName: 'bprservice-works-pages';
+    singularName: 'bprservice-works-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    images: Schema.Attribute.Media<'images', true> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bprservice-works-page.bprservice-works-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1270,6 +1308,7 @@ declare module '@strapi/strapi' {
       'api::bprservice-brand.bprservice-brand': ApiBprserviceBrandBprserviceBrand;
       'api::bprservice-home-page.bprservice-home-page': ApiBprserviceHomePageBprserviceHomePage;
       'api::bprservice-product.bprservice-product': ApiBprserviceProductBprserviceProduct;
+      'api::bprservice-works-page.bprservice-works-page': ApiBprserviceWorksPageBprserviceWorksPage;
       'api::fastontime-about-page.fastontime-about-page': ApiFastontimeAboutPageFastontimeAboutPage;
       'api::fastontime-contact-page.fastontime-contact-page': ApiFastontimeContactPageFastontimeContactPage;
       'api::fastontime-home-page.fastontime-home-page': ApiFastontimeHomePageFastontimeHomePage;
