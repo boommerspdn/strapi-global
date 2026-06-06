@@ -515,7 +515,6 @@ export interface ApiBprserviceContactPageBprserviceContactPage
     publishedAt: Schema.Attribute.DateTime;
     seo: Schema.Attribute.Component<'seo.seo', false>;
     subtitle: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -549,6 +548,7 @@ export interface ApiBprserviceHomePageBprserviceHomePage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -653,6 +653,7 @@ export interface ApiBprserviceWorksPageBprserviceWorksPage
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

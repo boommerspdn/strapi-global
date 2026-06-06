@@ -11,10 +11,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
     "subtitle": {
       "type": "string",
       "required": true

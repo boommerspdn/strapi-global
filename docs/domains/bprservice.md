@@ -1,6 +1,6 @@
 # BPRService API
 
-Use this file for BPRService frontend work only. It covers shared layout content, homepage content, contact page content, works page images, air conditioner brands, product series, and product specs.
+Use this file for BPRService frontend work only. It covers shared layout content, homepage content, contact page content, works page images, SEO metadata, air conditioner brands, product series, and product specs.
 
 ## Endpoints
 
@@ -13,7 +13,7 @@ Use this file for BPRService frontend work only. It covers shared layout content
 | Brands | Collection type | `api::bprservice-brand.bprservice-brand` | `GET /api/bprservice-brands`, `GET /api/bprservice-brands/:id` |
 | Products | Collection type | `api::bprservice-product.bprservice-product` | `GET /api/bprservice-products`, `GET /api/bprservice-products/:id` |
 
-Request population for media, relation, and component fields when the frontend needs nested data, for example `?populate=*`.
+Request population for media, relation, and component fields when the frontend needs nested data, for example `?populate=*`. Page SEO metadata is stored in the non-repeatable `seo.seo` component and must be populated when the frontend needs meta tags.
 
 ## Layout
 
@@ -39,6 +39,7 @@ Source schema: `src/api/bprservice-home-page/content-types/bprservice-home-page/
 | `heroSubtitle` | string | Yes | Hero supporting text |
 | `heroImage` | media | Yes | Single image |
 | `features` | component array | No | Repeatable `shared.feature-card` |
+| `seo` | component | No | `seo.seo` metadata |
 
 `features` items contain:
 
@@ -56,7 +57,6 @@ This endpoint stores contact-page copy only. Use `GET /api/bprservice-layout?pop
 
 | Field | Type | Required | Notes |
 | --- | --- | --- | --- |
-| `title` | string | Yes | Page headline |
 | `subtitle` | string | Yes | Short supporting headline |
 | `description` | text | Yes | Contact page body copy |
 | `mapTitle` | string | Yes | Heading shown above or near the map |
@@ -69,6 +69,18 @@ Source schema: `src/api/bprservice-works-page/content-types/bprservice-works-pag
 | Field | Type | Required | Notes |
 | --- | --- | --- | --- |
 | `images` | media array | Yes | Repeatable images |
+| `seo` | component | No | `seo.seo` metadata |
+
+## SEO Metadata
+
+Source component: `src/components/seo/seo.json`
+
+BPRService page endpoints use the shared `seo.seo` component for frontend meta tags. The contact page already includes this field, and the home and works pages also expose it.
+
+| Field | Type | Required | Notes |
+| --- | --- | --- | --- |
+| `title` | string | Yes | Page meta title |
+| `description` | text | Yes | Page meta description |
 
 ## Brands
 

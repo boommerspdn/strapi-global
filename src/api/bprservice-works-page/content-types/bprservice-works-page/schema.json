@@ -16,6 +16,11 @@
       "multiple": true,
       "required": true,
       "allowedTypes": ["images"]
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
     }
   }
 }
