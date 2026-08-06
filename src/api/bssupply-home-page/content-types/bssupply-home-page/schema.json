@@ -1,0 +1,44 @@
+{
+  "kind": "singleType",
+  "collectionName": "bssupply_home_pages",
+  "info": {
+    "singularName": "bssupply-home-page",
+    "pluralName": "bssupply-home-pages",
+    "displayName": "Bssupply - Home Page",
+    "description": "Bssupply homepage content"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "subheadline": {
+      "type": "text"
+    },
+    "searchPlaceholder": {
+      "type": "string",
+      "default": "ค้นหาสินค้า รุ่น หรือหมวดหมู่"
+    },
+    "featuredProducts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::bssupply-product.bssupply-product"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    },
+    "heroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

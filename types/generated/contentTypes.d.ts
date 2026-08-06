@@ -660,6 +660,182 @@ export interface ApiBprserviceWorksPageBprserviceWorksPage
   };
 }
 
+export interface ApiBssupplyCategoryBssupplyCategory
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bssupply_categories';
+  info: {
+    description: 'Bssupply product category';
+    displayName: 'Bssupply - Category';
+    pluralName: 'bssupply-categories';
+    singularName: 'bssupply-category';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-category.bssupply-category'
+    > &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-product.bssupply-product'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    sortOrder: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBssupplyHomePageBssupplyHomePage
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bssupply_home_pages';
+  info: {
+    description: 'Bssupply homepage content';
+    displayName: 'Bssupply - Home Page';
+    pluralName: 'bssupply-home-pages';
+    singularName: 'bssupply-home-page';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featuredProducts: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-product.bssupply-product'
+    >;
+    headline: Schema.Attribute.String & Schema.Attribute.Required;
+    heroImage: Schema.Attribute.Media<'images'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-home-page.bssupply-home-page'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    searchPlaceholder: Schema.Attribute.String &
+      Schema.Attribute.DefaultTo<'\u0E04\u0E49\u0E19\u0E2B\u0E32\u0E2A\u0E34\u0E19\u0E04\u0E49\u0E32 \u0E23\u0E38\u0E48\u0E19 \u0E2B\u0E23\u0E37\u0E2D\u0E2B\u0E21\u0E27\u0E14\u0E2B\u0E21\u0E39\u0E48'>;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    subheadline: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBssupplyProductBssupplyProduct
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'bssupply_products';
+  info: {
+    description: 'Bssupply catalog product';
+    displayName: 'Bssupply - Product';
+    pluralName: 'bssupply-products';
+    singularName: 'bssupply-product';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    brand: Schema.Attribute.String;
+    category: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::bssupply-category.bssupply-category'
+    >;
+    condition: Schema.Attribute.Enumeration<['new', 'used', 'for_parts']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'used'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    featured: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    images: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-product.bssupply-product'
+    > &
+      Schema.Attribute.Private;
+    locationNote: Schema.Attribute.String;
+    model: Schema.Attribute.String;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    price: Schema.Attribute.Integer &
+      Schema.Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      >;
+    priceNote: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    specs: Schema.Attribute.Component<'bssupply.product-spec', true>;
+    summary: Schema.Attribute.Text;
+    tags: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiBssupplySiteSettingBssupplySiteSetting
+  extends Struct.SingleTypeSchema {
+  collectionName: 'bssupply_site_settings';
+  info: {
+    description: 'Bssupply global site and contact settings';
+    displayName: 'BSSupply - Layout';
+    pluralName: 'bssupply-site-settings';
+    singularName: 'bssupply-site-setting';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.Text;
+    contactNote: Schema.Attribute.Text;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    hours: Schema.Attribute.String;
+    lineId: Schema.Attribute.String;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::bssupply-site-setting.bssupply-site-setting'
+    > &
+      Schema.Attribute.Private;
+    logo: Schema.Attribute.Media<'images'>;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seo: Schema.Attribute.Component<'seo.seo', false>;
+    storeName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'BS Supply'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFastontimeAboutPageFastontimeAboutPage
   extends Struct.SingleTypeSchema {
   collectionName: 'fastontime_about_pages';
@@ -1377,6 +1553,10 @@ declare module '@strapi/strapi' {
       'api::bprservice-layout.bprservice-layout': ApiBprserviceLayoutBprserviceLayout;
       'api::bprservice-product.bprservice-product': ApiBprserviceProductBprserviceProduct;
       'api::bprservice-works-page.bprservice-works-page': ApiBprserviceWorksPageBprserviceWorksPage;
+      'api::bssupply-category.bssupply-category': ApiBssupplyCategoryBssupplyCategory;
+      'api::bssupply-home-page.bssupply-home-page': ApiBssupplyHomePageBssupplyHomePage;
+      'api::bssupply-product.bssupply-product': ApiBssupplyProductBssupplyProduct;
+      'api::bssupply-site-setting.bssupply-site-setting': ApiBssupplySiteSettingBssupplySiteSetting;
       'api::fastontime-about-page.fastontime-about-page': ApiFastontimeAboutPageFastontimeAboutPage;
       'api::fastontime-contact-page.fastontime-contact-page': ApiFastontimeContactPageFastontimeContactPage;
       'api::fastontime-home-page.fastontime-home-page': ApiFastontimeHomePageFastontimeHomePage;

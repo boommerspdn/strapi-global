@@ -1,0 +1,77 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bssupply_products",
+  "info": {
+    "singularName": "bssupply-product",
+    "pluralName": "bssupply-products",
+    "displayName": "Bssupply - Product",
+    "description": "Bssupply catalog product"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "summary": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bssupply-category.bssupply-category",
+      "inversedBy": "products"
+    },
+    "condition": {
+      "type": "enumeration",
+      "enum": [
+        "new",
+        "used",
+        "for_parts"
+      ],
+      "default": "used",
+      "required": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "price": {
+      "type": "integer",
+      "min": 0
+    },
+    "priceNote": {
+      "type": "string"
+    },
+    "locationNote": {
+      "type": "string"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "specs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "bssupply.product-spec"
+    },
+    "featured": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

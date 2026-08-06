@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BssupplyProductSpec extends Struct.ComponentSchema {
+  collectionName: 'components_bssupply_product_specs';
+  info: {
+    displayName: 'Bssupply - Product Spec';
+    icon: 'bulletList';
+  };
+  attributes: {
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    value: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ProductSpecRow extends Struct.ComponentSchema {
   collectionName: 'components_product_spec_rows';
   info: {
@@ -45,6 +57,7 @@ export interface SharedFeatureCard extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'bssupply.product-spec': BssupplyProductSpec;
       'product.spec-row': ProductSpecRow;
       'seo.seo': SeoSeo;
       'shared.feature-card': SharedFeatureCard;

@@ -1,0 +1,47 @@
+{
+  "kind": "singleType",
+  "collectionName": "bssupply_site_settings",
+  "info": {
+    "singularName": "bssupply-site-setting",
+    "pluralName": "bssupply-site-settings",
+    "displayName": "BSSupply - Layout",
+    "description": "Bssupply global site and contact settings"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "storeName": {
+      "type": "string",
+      "required": true,
+      "default": "BS Supply"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "phone": {
+      "type": "string"
+    },
+    "lineId": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "hours": {
+      "type": "string"
+    },
+    "contactNote": {
+      "type": "text"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "seo.seo"
+    }
+  }
+}
