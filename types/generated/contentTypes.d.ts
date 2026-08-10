@@ -458,6 +458,7 @@ export interface ApiBprserviceBrandBprserviceBrand
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     floorUnit: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     hangingUnit: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -572,6 +573,7 @@ export interface ApiBprserviceLayoutBprserviceLayout
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     googleMapEmbedSrc: Schema.Attribute.Text & Schema.Attribute.Required;
     lineId: Schema.Attribute.String & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -815,6 +817,7 @@ export interface ApiBssupplySiteSettingBssupplySiteSetting
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     hours: Schema.Attribute.String;
     lineId: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
@@ -985,6 +988,7 @@ export interface ApiFastontimeLayoutFastontimeLayout
       Schema.Attribute.Private;
     email: Schema.Attribute.String & Schema.Attribute.Required;
     facebook_link: Schema.Attribute.Text & Schema.Attribute.Required;
+    favicon: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
     line_link: Schema.Attribute.Text & Schema.Attribute.Required;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<

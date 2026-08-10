@@ -23,6 +23,12 @@
         "images"
       ]
     },
+    "favicon": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": ["images"]
+    },
     "phone": {
       "type": "string"
     },
