@@ -2,6 +2,8 @@
 
 Use this file for BPRService frontend work only. It covers shared layout content, homepage content, contact page content, works page images, SEO metadata, air conditioner brands, product series, and product specs.
 
+Frontend repo: `../bpr-service`
+
 ## Endpoints
 
 | Content | Type | UID | REST endpoint |

@@ -1,4 +1,32 @@
-# 🚀 Getting started with Strapi
+# Strapi Global
+
+Shared Strapi 5 backend for the fullstack Pbaramee workspace.
+
+## Workspace Role
+
+- Local URL: `http://localhost:1337`
+- Admin URL: `http://localhost:1337/admin`
+- Frontend consumers: `../accounting-frontend`, `../bpr-service`, and `../bssupply`
+- API docs: `docs/API_ARCHITECTURE.md`
+
+## Development Database
+
+Development uses SQLite through `config/database.ts`. The default database file is:
+
+```text
+.tmp/data.db
+```
+
+Direct local DB edits are part of this workspace workflow. Stop Strapi first, back up `.tmp/data.db`, edit the database, then restart Strapi and verify the affected frontend. Uploaded media lives in `public/uploads`.
+
+## Domain Groups
+
+- `fastontime-*`: Fast On Time content for `accounting-frontend`
+- `bprservice-*`: BPR Service content for `bpr-service`
+- `bssupply-*`: BS Supply content for `bssupply`
+- `contact`: shared custom email route
+
+## Getting started with Strapi
 
 Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
 
