@@ -52,6 +52,33 @@ Examples:
 - `src/api/bprservice-product`
 - `src/api/bssupply-category`
 
+## Domain Build Webhooks
+
+Strapi registers a bootstrap lifecycle subscriber in `src/bootstrap/domain-build-webhooks.ts`.
+When domain-owned content changes, it triggers only the configured build hook for that domain:
+
+| Content type prefix | Frontend repo | Environment variable |
+| --- | --- | --- |
+| `fastontime-*` | `accounting-frontend` | `FASTONTIME_BUILD_WEBHOOK_URLS` |
+| `bprservice-*` | `bpr-service` | `BPRSERVICE_BUILD_WEBHOOK_URLS` |
+| `bssupply-*` | `bssupply` | `BSSUPPLY_BUILD_WEBHOOK_URLS` |
+
+Each variable accepts one URL or a comma-separated list of URLs. Strapi sends a `POST` request with this JSON body:
+
+```json
+{
+  "domain": "bssupply",
+  "triggeredAt": "2026-09-09T15:00:00.000Z",
+  "changed": {
+    "actions": ["afterUpdate"],
+    "contentTypes": ["api::bssupply-product.bssupply-product"]
+  }
+}
+```
+
+Build triggers are debounced per domain with `DOMAIN_BUILD_WEBHOOK_DEBOUNCE_MS`, defaulting to `30000`.
+This avoids firing multiple builds for one publish flow in Strapi 5, where document actions can produce multiple database lifecycle events.
+
 ## Fast On Time APIs
 
 Consumed by `accounting-frontend`.

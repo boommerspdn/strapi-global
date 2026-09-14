@@ -131,6 +131,7 @@ coverage
 ############################
 
 .env
+.env.old-public_html
 .env.local
 .env.*.local
 license.txt
